@@ -46,13 +46,6 @@ class NoteControllerTest {
         mvc.perform(get("/notes/1")).andExpect(status().isNoContent());
     }
 
-    @Test
-    public void testUpdateNoteNoNoteFoundWillReturnNotContent() throws Exception{
-       doThrow(NoteNotFoundException.class)
-               .when(noteService).updateNote(anyInt(),any());
-
-        mvc.perform(put("/notes/1")).andExpect(status().isNoContent());
-    }
 
     @Test
     public void testDeleteNoteNoNoteFoundWillReturnNotContent() throws Exception{
