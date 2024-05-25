@@ -29,19 +29,20 @@ public class NoteController {
         return new ResponseEntity<>("Note Created",HttpStatus.OK);
     }
 
-    @GetMapping("/{noteId}")
-    public Note getNoteById(@Valid @PathVariable("noteId") int noteId) throws NoteNotFoundException {
-        return noteService.getNoteById(noteId);
+    @GetMapping("/{id}")
+    public Note getNoteById(@Valid @PathVariable("id") int id) throws NoteNotFoundException {
+        return noteService.getNoteById(id);
     }
 
-    @PutMapping("/{noteId}")
-    public ResponseEntity<String> updateNote(@PathVariable("noteId") int noteId,@Valid NoteRequestBody noteRequestBody) throws NoteNotFoundException {
-        noteService.updateNote(noteId, noteRequestBody);
-        return new ResponseEntity<>("Updated "+noteId, HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateNote(@PathVariable("id") int id,
+                                             @Valid NoteRequestBody noteRequestBody) throws NoteNotFoundException {
+        noteService.updateNote(id, noteRequestBody);
+        return new ResponseEntity<>("Updated "+id, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{noteId}")
-    public Note deleteNote(@PathVariable("noteId")int noteId) throws NoteNotFoundException {
-        return noteService.deleteNote(noteId);
+    @DeleteMapping("/{id}")
+    public Note deleteNote(@PathVariable("id")int id) throws NoteNotFoundException {
+        return noteService.deleteNote(id);
     }
 }
