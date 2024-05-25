@@ -22,4 +22,4 @@ Running the application
 ```
 docker run -p 8080:8080 note:latest
 ```
-2. Open swagger-ui endpoint at localhost:8080/
+2. Open swagger-ui endpoint at localhost:8080/ for complete API docs
